@@ -42,22 +42,22 @@ public class Climber extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    if(RobotContainer.co.pov0.getAsBoolean())
+    if(RobotContainer.main.pov0.getAsBoolean())
     {
       System.out.println("Making it");
       // JEREMY FIX THIS OR BAD
       // NAMES ARE BAD AND CONFUSING
       climb(-1);
       release(-1);//56yrftutyhi7ut768ut87iutuy87uui6y8i7il7uy87iy5r6f7tgufiunhtr6yr6r67r67r67r67r67r67rti7yi7yhi7uhuihuii
-    } else if(RobotContainer.co.pov180.getAsBoolean())
+    } else if(RobotContainer.main.pov180.getAsBoolean())
     {
       release(1);
       climb(1);
-    } else if(RobotContainer.co.pov90.getAsBoolean())
+    } else if(RobotContainer.main.pov90.getAsBoolean())
     {
       System.out.println("Making it");
       climb(-.5);
-    } else if(RobotContainer.co.pov270.getAsBoolean())
+    } else if(RobotContainer.main.pov270.getAsBoolean())
     {
       System.out.println("Making it");
       release(-.5);

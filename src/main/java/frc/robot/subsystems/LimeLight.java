@@ -69,7 +69,7 @@ public class LimeLight extends PIDSubsystem {
     SmartDashboard.putNumber("LimelightY", y);
     SmartDashboard.putNumber("LimelightArea", area);
 
-    if(RobotContainer.main.getCrossButton())
+    if(RobotContainer.main.getShareButton())
     {
       Robot.limelight = true;
       setPipeline(1);

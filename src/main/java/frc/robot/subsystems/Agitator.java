@@ -26,16 +26,16 @@ public class Agitator extends SubsystemBase {
 
   @Override
   public void periodic() {
-    if(RobotContainer.co.square.getAsBoolean()) {
+    if(RobotContainer.main.square.getAsBoolean()) {
       setTurretMotorSpeed(.7);
-    } else if(RobotContainer.co.getPSButton())
+    } else if(RobotContainer.main.getPSButton())
     {
       setTurretMotorSpeed(-.7);
-    } else if(RobotContainer.co.getTriangleButton())
+    } else if(RobotContainer.main.getTriangleButton())
     {
-    setTurretMotorSpeed(.7);
+    setTurretMotorSpeed(1);
     }
-    else if(RobotContainer.co.getCrossButton())
+    else if(RobotContainer.main.getCrossButton())
     {
     setTurretMotorSpeed(.7);
     } else if(!Robot.auton){

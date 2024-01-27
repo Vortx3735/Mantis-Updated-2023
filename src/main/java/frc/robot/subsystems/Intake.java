@@ -57,19 +57,19 @@ public class Intake extends SubsystemBase {
 
   @Override
   public void periodic() {
-    if(RobotContainer.co.circle.getAsBoolean())
+    if(RobotContainer.main.circle.getAsBoolean())
     {
       setIntakeSpeed(.9);
     } else if(RobotContainer.main.getCircleButton()){
       setIntakeSpeed(-.9);
-    } else if(RobotContainer.co.getR1Button()){
+    } else if(RobotContainer.main.getR1Button()){
       extend();
-    } else if(RobotContainer.co.getL1Button()){
+    } else if(RobotContainer.main.getL1Button()){
       contract();
     } else if(RobotContainer.co.getR2Button())
     {
       extendPivotArm();
-    } else if(RobotContainer.co.getPSButton())
+    } else if(RobotContainer.main.getPSButton())
     {
       setIntakeSpeed(-.7);
     } else if(RobotContainer.co.getL2Button())

@@ -14,7 +14,7 @@ import frc.robot.RobotContainer;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  TalonFX shooterLeft = new TalonFX(5);
+  TalonFX shooterLeft = new TalonFX(23);
   TalonFX shooterRight = new TalonFX(6);
   double speed = 0;
 
@@ -32,14 +32,15 @@ public class Shooter extends SubsystemBase {
   public void setShooterSpeed(double inputSpeed)
   {
     shooterLeft.set(TalonFXControlMode.PercentOutput, inputSpeed);
+    shooterRight.set(TalonFXControlMode.PercentOutput, inputSpeed);
   }
 
   @Override
   public void periodic() {
     // controls
-    if(RobotContainer.co.triangle.getAsBoolean()) {
+    if(RobotContainer.main.triangle.getAsBoolean()) {
       setShooterSpeed(1);
-    } else if(RobotContainer.co.cross.getAsBoolean()) {
+    } else if(RobotContainer.main.cross.getAsBoolean()) {
       setShooterSpeed(.26);
     } else if(!Robot.auton){
       setShooterSpeed(0);

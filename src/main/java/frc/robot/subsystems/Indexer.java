@@ -27,20 +27,20 @@ public class Indexer extends SubsystemBase {
   @Override
   public void periodic() {
     // controls
-    if(RobotContainer.co.cross.getAsBoolean())
+    if(RobotContainer.main.cross.getAsBoolean())
     {
       setTurretMotorSpeed(-.85);
     
-    } else if(RobotContainer.co.square.getAsBoolean())
+    } else if(RobotContainer.main.square.getAsBoolean())
     {
       setTurretMotorSpeed(0);
-    } else if(RobotContainer.co.triangle.getAsBoolean())
+    } else if(RobotContainer.main.triangle.getAsBoolean())
     {
-      setTurretMotorSpeed(-.85);
-    } else if(RobotContainer.co.circle.getAsBoolean())
+      setTurretMotorSpeed(-1);
+    } else if(RobotContainer.main.circle.getAsBoolean())
     {
       setTurretMotorSpeed(0);
-    } else if(RobotContainer.co.getPSButton())
+    } else if(RobotContainer.main.getPSButton())
     {
       setTurretMotorSpeed(.7);
     }
