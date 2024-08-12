@@ -7,11 +7,11 @@ package frc.robot.commands;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Intake;
 
-public class DriveStraight extends CommandBase {
+public class DriveStraight extends Command {
   /** Creates a new DriveStraight. */
   private Drive drive;
   private double move;
@@ -46,8 +46,8 @@ public class DriveStraight extends CommandBase {
   public void execute() {
     intake.setIntakeSpeed(0);
     //drive.arcadeDrive(.3, 0);
-    drive.left_front_motor.set(ControlMode.PercentOutput, .5);
-    drive.right_front_motor.set(ControlMode.PercentOutput, .5);
+    drive.left_front_motor.set(.5);
+    drive.right_front_motor.set(.5);
     System.out.println("we got here");
 
     if(autoStart-Timer.getFPGATimestamp()>=2);

@@ -4,13 +4,13 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Indexer;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
-public class DriveAndShoot extends CommandBase {
+public class DriveAndShoot extends Command {
   /** Creates a new DriveAndShoot. */
   Drive drive;
   Intake intake;

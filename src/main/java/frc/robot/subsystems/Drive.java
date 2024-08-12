@@ -5,8 +5,8 @@
 package frc.robot.subsystems;
 
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix6.controls.*;
+import com.ctre.phoenix6.hardware.*;
 
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -19,6 +19,7 @@ public class Drive extends SubsystemBase {
   public static TalonFX right_back_motor = new TalonFX(1); 
   public static TalonFX left_front_motor = new TalonFX(2);    
   public static TalonFX left_back_motor = new TalonFX(3); 
+  public final VoltageOut m_request = new VoltageOut(0);
 
   private double move = 0;
   private double rotate = 0;
@@ -33,27 +34,28 @@ public class Drive extends SubsystemBase {
     // do you need that????????????????????????????????/
     // why do you need to set it to NOT inverted if that's how it already is
     right_front_motor.setInverted(false);   
-    right_back_motor.follow(right_front_motor);
     left_front_motor.setInverted(true);   
     left_back_motor.setInverted(true);
-    left_back_motor.follow(left_front_motor);
+
+    right_back_motor.setControl(new Follower(right_back_motor.getDeviceID(), false));
+    left_back_motor.setControl(new Follower(left_front_motor.getDeviceID(), false));
   }
 
   public void test()
   {
-    right_front_motor.set(ControlMode.PercentOutput,.3);
+    right_front_motor.set(.3);
   }
 
   public void tankDrive(double left, double right)
   {
-      right_front_motor.set(ControlMode.PercentOutput, -right);
-      left_front_motor.set(ControlMode.PercentOutput, -left);
+      right_front_motor.set(-right);
+      left_front_motor.set(-left);
   }
 
   public void autoConfig()
   {
-    right_back_motor.follow(right_front_motor);
-    left_back_motor.follow(left_front_motor);
+    right_back_motor.setControl(new Follower(right_back_motor.getDeviceID(), false));
+    left_back_motor.setControl(new Follower(left_front_motor.getDeviceID(), false));
     right_front_motor.setInverted(false);
     left_front_motor.setInverted(false);
   }
@@ -67,8 +69,8 @@ public class Drive extends SubsystemBase {
   public void arcadeDrive(double move, double rotation)
   {
     // This is defining the speed of both sides of the drive train based off of direction and rotation values (right is positive, left is negative)
-    right_front_motor.set(ControlMode.PercentOutput, move - rotation);
-    left_front_motor.set(ControlMode.PercentOutput, move + rotation);
+    right_front_motor.set(move - rotation);
+    left_front_motor.set(move + rotation);
    
   }
 
